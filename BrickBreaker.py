@@ -167,9 +167,7 @@ def game_breaker():
         ObjectBrick.check_brick()
         paddle.check_paddle()
         ball.check_ball()
-
         gameroot.update_idletasks()
-
         gameroot.update()
         time.sleep(0.01)
 
