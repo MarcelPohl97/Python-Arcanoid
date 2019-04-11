@@ -4,11 +4,7 @@ import random
 import pygame
 
 
-
-
-
 def game_breaker():
-
     gameroot = Tk()
     gameroot.title("Game Root")
     gameroot.resizable(0,0)
@@ -19,6 +15,7 @@ def game_breaker():
     gamerootCanvas.pack()
     gamerootCanvas.update()
 
+    
     class Ball:
         def __init__(self, gamerootCanvas, paddle, bricks, color):
             self.paddle = paddle
@@ -40,8 +37,6 @@ def game_breaker():
             self.image_width = self.imageball.width()
             self.hit = 0
 
-
-
         def play_pong_sound(self):
             pygame.mixer.music.load("ponghit.mp3")
             pygame.mixer.music.play()
@@ -62,15 +57,10 @@ def game_breaker():
             pygame.mixer.music.load("loose.mp3")
             pygame.mixer.music.play()
 
-
-
-
-
         def loose_game(self):
             self.gamerootCanvas.move(self.loose_text, 400, 300)
 
         def check_ball(self):
-
             self.gamerootCanvas.move(self.id, self.x, self.y)
             pos = self.gamerootCanvas.bbox(self.id)
             if pos[0] <= 0:
@@ -112,10 +102,6 @@ def game_breaker():
                         if pos[1] >= brick_pos[1] and pos[1] <= brick_pos[3]:
                             if pos[0] >= brick_pos[0] and pos[0] <= brick_pos[2]:
                                 self.gamerootCanvas.delete(brick.id)
-
-
-
-
                                 return True
                     except:
                         continue
@@ -137,7 +123,6 @@ def game_breaker():
         def check_paddle(self):
             self.gamerootCanvas.move(self.id, self.x, self.y)
             pos = self.gamerootCanvas.bbox(self.id)
-
             if pos[0] <= 0:
                 self.x = 5
             if pos[2] >= self.gamerootCanvas_width:
